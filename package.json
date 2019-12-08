@@ -29,6 +29,11 @@
     "start": "node src/",
     "jest": "jest  --forceExit"
   },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn test"
+    }
+  },
   "dependencies": {
     "@feathersjs/authentication": "^4.3.0",
     "@feathersjs/authentication-local": "^4.3.0",
