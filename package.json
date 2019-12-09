@@ -1,15 +1,18 @@
 {
   "name": "be-feathers-mongoose",
   "description": "",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "homepage": "",
   "main": "src",
   "keywords": [
-    "feathers"
+    "feathers",
+    "expense",
+    "report",
+    "tracking"
   ],
   "author": {
-    "name": "Ekpo David",
-    "email": "dave170e71@gmail.com"
+    "name": "Enle",
+    "email": "services@enle.co"
   },
   "contributors": [],
   "bugs": {},
@@ -19,7 +22,7 @@
     "config": "config/"
   },
   "engines": {
-    "node": "^12.0.0",
+    "node": ">=12.0.0",
     "yarn": ">= 0.18.0"
   },
   "scripts": {
