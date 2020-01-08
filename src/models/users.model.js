@@ -22,10 +22,3 @@ module.exports = function (app) {
 
   return mongooseClient.model('users', users);
 };
-
-
-User -> ID, full name (string), email(string), pwd(varchar), org_id(ID - optional),
-Org -> ID, Name (unique), created by, invites (array -> email(string))
-
-Other thoughts:
-Org invite link -> base url + url encoded org name
