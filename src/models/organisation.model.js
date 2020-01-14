@@ -2,24 +2,23 @@
 // 
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
-
-const userSchema = require('./users.model');
-
 module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
   const { Schema } = mongooseClient;
   const organisation = new Schema({
 
-    id: {type: Number, unique: true},
+    name: {
+      type: String,
+      unique: true,
+      lowercase: true,
+    },
 
-    Name: {type: String, unique: true, lowercase: true},
+    createdBy: Schema.Types.ObjectId,
 
-    createdBy: {userSchema},
-
-    invites: [{type: String}],
+    invites: [{ type: String }],
 
     meta: {
-      users: [{type: String}]
+      users: [{ type: String }]
     }
 
   }, {
