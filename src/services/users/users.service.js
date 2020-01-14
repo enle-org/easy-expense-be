@@ -3,7 +3,7 @@ const { Users } = require('./users.class');
 const createModel = require('../../models/users.model');
 const hooks = require('./users.hooks');
 // eslint-disable-next-line no-unused-vars
-const docs = require('./users.docs');
+const { userServiceDoc } = require('./docs');
 
 module.exports = function (app) {
   const Model = createModel(app);

@@ -158,4 +158,5 @@
         }
 */
 
-module.exports.userServiceDoc  = 'doc';
+module.exports =  'docs';
+

@@ -12,7 +12,6 @@ const socketio = require('@feathersjs/socketio');
 const Sentry = require('@sentry/node');
 require('dotenv').config();
 
-const config = require('../config');
 const middleware = require('./middleware');
 const services = require('./services');
 const appHooks = require('./app.hooks');
@@ -24,8 +23,8 @@ const mongoose = require('./mongoose');
 
 const app = express(feathers());
 Sentry.init({
-  dsn: config.SENTRY_DSN,
-  environment: config.ENVIRONMENT,
+  dsn: app.get('sentry_dsn'),
+  environment: app.get('environment'),
 });
 
 // Load app configuration
