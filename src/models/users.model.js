@@ -16,6 +16,12 @@ module.exports = function (app) {
 
     password: { type: String, required: true },
 
+    type: {
+      type: String,
+      default: 'user',
+      required: true,
+    },
+
     orgId: mongooseClient.Schema.Types.ObjectId,
   
     googleId: { type: String },
@@ -26,12 +32,3 @@ module.exports = function (app) {
 
   return mongooseClient.model('users', users);
 };
-
-// TCL: GoogleStrategy -> getEntityData -> profile {
-//   sub: '117442093990342533940',
-//   picture: 'https://lh5.googleusercontent.com/-Cw8V6coFhOo/AAAAAAAAAAI/AAAAAAAAAAA/qZBhoihPWTg/photo.jpg',
-//   email: 'david@enle.co',
-//   email_verified: true,
-//   hd: 'enle.co'
-// }
-// TCL: GoogleStrategy -> getEntityData -> baseData { googleId: '117442093990342533940' }
