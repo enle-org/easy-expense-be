@@ -19,12 +19,17 @@ module.exports = function (app) {
     type: {
       type: String,
       default: 'user',
-      required: true,
+    },
+    
+    orgId: {
+      type: mongooseClient.Schema.Types.ObjectId,
+      ref: 'organisations'
     },
 
-    orgId: mongooseClient.Schema.Types.ObjectId,
-  
-    googleId: { type: String },
+    googleId: {
+      type: String,
+      default: '',
+    },
   
   }, {
     timestamps: true
