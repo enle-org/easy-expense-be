@@ -49,5 +49,10 @@
   },
   "environment": "ENVIRONMENT",
   "mongodb_uri": "MONGODB_URI",
-  "sentry_dsn": "SENTRY_DSN"
+  "sentry_dsn": "SENTRY_DSN",
+  "email": "EMAIL",
+  "smtp_host": "SMTP_HOST",
+  "smtp_port": "SMTP_PORT",
+  "smtp_username": "SMTP_USERNAME",
+  "smtp_password": "SMTP_MAIL_PASSWORD"
 }
