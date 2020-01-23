@@ -3,10 +3,13 @@ const { Dashboard } = require('./dashboard.class');
 const hooks = require('./dashboard.hooks');
 
 module.exports = function (app) {
-  
+  const mongooseClient = app.get('mongooseClient');
+  const users = mongooseClient.model('users');
+  const organisations = mongooseClient.model('organisations');
   const paginate = app.get('paginate');
 
   const options = {
+    models: { users, organisations },
     paginate
   };
 

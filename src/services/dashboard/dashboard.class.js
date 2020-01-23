@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-const organisationsModel = require('../../models/organisations.model');
+const settingsHandler = require('./controllers/settings');
 
 exports.Dashboard = class Dashboard {
   constructor (options) {
@@ -7,13 +7,14 @@ exports.Dashboard = class Dashboard {
   }
 
   async find (params) {
-    console.log("TCL: Dashboard -> find -> params.query", params.query);
     return {
       invites: params.user.invites,
     };
   }
 
   async get (id, params) {
+    if (id === 'settings')
+      return settingsHandler(this.options.models, params.user);
     return {
       id, text: `A new message with ID: ${id}!`
     };

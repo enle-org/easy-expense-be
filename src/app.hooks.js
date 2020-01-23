@@ -9,7 +9,7 @@ module.exports = {
       when(
         hook => hook.params.provider && hook.path !==  'authentication',
         authenticate,
-        // authorize(),
+        authorize(),
       )
     ],
     find: [],
