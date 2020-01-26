@@ -50,6 +50,7 @@
   "environment": "ENVIRONMENT",
   "mongodb_uri": "DEV_MONGODB_URI",
   "sentry_dsn": "SENTRY_DSN",
+  "sendgrid": "SENDGRID",
   "email": "DEV_EMAIL",
   "smtp_host": "DEV_SMTP_HOST",
   "smtp_port": "DEV_SMTP_PORT",

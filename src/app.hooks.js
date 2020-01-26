@@ -7,7 +7,7 @@ module.exports = {
   before: {
     all: [
       when(
-        hook => hook.params.provider && hook.path !==  'authentication',
+        hook => hook.params.provider && hook.path !== 'authentication' && hook.path !== 'recovery',
         authenticate,
         authorize(),
       )
