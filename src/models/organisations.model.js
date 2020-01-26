@@ -19,7 +19,14 @@ module.exports = function (app) {
       required: true,
     },
 
-    invites: [{ type: String }],
+    invites: [{
+      email: String,
+      token: String,
+    }],
+
+    users: [{
+      email: String,
+    }],
 
   }, {
     timestamps: true

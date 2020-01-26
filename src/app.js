@@ -10,6 +10,7 @@ const configuration = require('@feathersjs/configuration');
 const express = require('@feathersjs/express');
 const socketio = require('@feathersjs/socketio');
 const Sentry = require('@sentry/node');
+const sgMail = require('@sendgrid/mail');
 require('dotenv').config();
 
 const middleware = require('./middleware');
@@ -22,13 +23,21 @@ const authentication = require('./authentication');
 const mongoose = require('./mongoose');
 
 const app = express(feathers());
+
+
+// Load app configuration
+app.configure(configuration());
+
+// Sentry Config - for error monitoring
 Sentry.init({
   dsn: app.get('sentry_dsn'),
   environment: app.get('environment'),
 });
 
-// Load app configuration
-app.configure(configuration());
+// Sendgrid Config
+sgMail.setApiKey(app.get('sendgrid'));
+app.set('sendgridMail', sgMail);
+
 // Enable security, CORS, compression, favicon and body parsing
 app.use(helmet());
 app.use(cors());
@@ -38,6 +47,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(favicon(path.join(app.get('public'), 'favicon.ico')));
 // Host the public folder
 app.use('/', express.static(app.get('public')));
+
 
 // Set up Plugins and providers
 app.configure(express.rest());

@@ -7,7 +7,8 @@ module.exports = function (app) {
     {
       useCreateIndex: true,
       useNewUrlParser: true,
-      useUnifiedTopology: true
+      useUnifiedTopology: true,
+      useFindAndModify: false
     }
   ).catch(err => {
     logger.error(err);
