@@ -52,8 +52,4 @@
   "sentry_dsn": "SENTRY_DSN",
   "sendgrid": "SENDGRID",
   "email": "DEV_EMAIL",
-  "smtp_host": "DEV_SMTP_HOST",
-  "smtp_port": "DEV_SMTP_PORT",
-  "smtp_username": "DEV_SMTP_USERNAME",
-  "smtp_password": "DEV_SMTP_MAIL_PASSWORD"
 }
