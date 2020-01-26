@@ -27,11 +27,6 @@ module.exports = function (app) {
       default: 'user',
     },
     
-    orgId: [{
-      type: mongooseClient.Schema.Types.ObjectId,
-      ref: 'organisations'
-    }],
-    
     invites: [{
       organisation: { type: mongooseClient.Schema.Types.ObjectId, ref: 'organisations' },
       sentBy: { type: String },

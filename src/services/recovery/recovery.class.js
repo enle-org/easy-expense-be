@@ -2,6 +2,8 @@
 const crypto = require('crypto');
 const { NotFound, GeneralError } = require('@feathersjs/errors');
 
+const utils = require('../../utils');
+
 exports.Recovery = class Recovery {
   constructor (options) {
     this.options = options || {};
@@ -44,15 +46,7 @@ exports.Recovery = class Recovery {
   async create (data, _params) {
     const user = await this.options.models.users.findOne({ email: data.email });
     if (user) {
-      const buffer = await new Promise((resolve, reject) => {
-        crypto.randomBytes(20, (err, buffer) => {
-          if (err) {
-            reject('error generating token');
-          }
-          resolve(buffer);
-        });
-      });
-      const token = buffer.toString('hex');
+      const token = await utils.tokenGenerator();
       await this.options.models.users.findByIdAndUpdate(
         { _id: user._id },
         {

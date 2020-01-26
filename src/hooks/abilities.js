@@ -18,13 +18,17 @@ const subjectName = subject => {
 const defineAbilitiesFor = user => {
   const { rules, can } = AbilityBuilder.extract();
 
-  can('create', ['users', 'organisations']);
+  can('create', [
+    'users',
+    'organisations',
+  ]);
 
   if (user) {
     can('manage', 'all', { type: 'admin' });
     can('manage', 'dashboard');
-    can('manage', 'organisations', { createdBy: user._id });
     can(['read', 'update'], 'users', { _id: user._id });
+    can('manage', 'invite');
+    can('manage', 'organisations', { createdBy: user._id });
   }
 
   return new Ability(rules, { subjectName });
