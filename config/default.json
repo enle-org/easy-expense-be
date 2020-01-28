@@ -51,5 +51,5 @@
   "mongodb_uri": "DEV_MONGODB_URI",
   "sentry_dsn": "SENTRY_DSN",
   "sendgrid": "SENDGRID",
-  "email": "DEV_EMAIL",
+  "email": "DEV_EMAIL"
 }

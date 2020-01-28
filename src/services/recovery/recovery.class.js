@@ -9,13 +9,13 @@ exports.Recovery = class Recovery {
     this.options = options || {};
   }
 
-  recoveryMsg(email, token) {
+  recoveryMsg(email, url, token) {
     return {
       to: email,
       from: 'no_reply@easy-expense.com',
       subject: 'Easy Expense Password Recovery',
-      text: `To reset your password, please click this link http://localhost:3030/recovery/${token}`,
-      html: `<strong>To reset your password, please click this link http://localhost:3030/recovery/${token}</strong>`,
+      text: `To reset your password, please click this link ${url}/${token}`,
+      html: `<strong>To reset your password, please click this link ${url}/${token}</strong>`,
     };
   }
 
@@ -55,7 +55,7 @@ exports.Recovery = class Recovery {
         },
         { upsert: true, new: true },
       );
-      this.options.sendgridMail.send(this.recoveryMsg(user.email, token));
+      this.options.sendgridMail.send(this.recoveryMsg(user.email, data.url, token));
       return {
         sucess: true,
         data: {
@@ -85,7 +85,13 @@ exports.Recovery = class Recovery {
         },
         { upsert: true, new: true },
       );
-      return response;
+      return {
+        success: true,
+        data: {
+          message: 'Password has been successfully reset',
+          response,
+        }
+      };
     }
   }
 
