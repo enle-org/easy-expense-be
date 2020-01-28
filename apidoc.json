@@ -1,0 +1,13 @@
+{
+  "name": "EasyExpense API documentation",
+  "version": "0.0.1",
+  "description": "Documentation for the REST api access provided at EasyExpense",
+  "title": "EasyExpense API documentation",
+  "url" : "https://api.easyexpense.com",
+  "sampleUrl": "https://api.easyexpense.com",
+  "template": {
+    "withCompare": true,
+    "withGenerator": true,
+    "aloneDisplay": false
+  }
+}

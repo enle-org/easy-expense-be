@@ -2,19 +2,45 @@
 //
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
+
 module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
   const users = new mongooseClient.Schema({
+
+    fullname: {
+      type: String,
+      default: '',
+    },
   
-    email: {type: String, unique: true, lowercase: true},
-    password: { type: String },
-  
-  
-    googleId: { type: String },
-  
-    facebookId: { type: String },
-  
-    twitterId: { type: String },
+    email: {
+      type: String,
+      unique: true,
+      required: true,
+      lowercase: true,
+      match: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
+    },
+
+    password: { type: String, required: true },
+
+    type: {
+      type: String,
+      default: 'user',
+    },
+    
+    invites: [{
+      organisation: { type: mongooseClient.Schema.Types.ObjectId, ref: 'organisations' },
+      sentBy: { type: String },
+    }],
+
+    googleId: {
+      type: String,
+      default: '',
+    },
+
+    passwordRecovery: {
+      token: { type: String },
+      expiry: { type: Date },
+    },
   
   }, {
     timestamps: true

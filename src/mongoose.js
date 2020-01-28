@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
-const config = require('../config');
 const logger = require('./logger');
 
 module.exports = function (app) {
   mongoose.connect(
-    config.MONGO_URI,
+    app.get('mongodb_uri'),
     {
       useCreateIndex: true,
       useNewUrlParser: true,
-      useUnifiedTopology: true
+      useUnifiedTopology: true,
+      useFindAndModify: false
     }
   ).catch(err => {
     logger.error(err);

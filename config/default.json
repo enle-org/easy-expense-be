@@ -1,15 +1,15 @@
 {
   "host": "localhost",
-  "port": 3030,
+  "port": "DEV_PORT",
   "public": "../public/",
   "paginate": {
     "default": 10,
     "max": 50
   },
   "authentication": {
-    "entity": "user",
-    "service": "users",
-    "secret": "WQvCDazV/Mpw+j2e6lrS5YIZFoE=",
+    "entity": "AUTHENTICATION_ENTITY",
+    "service": "AUTHENTICATION_SERVICE",
+    "secret": "DEV_JWT_SECRET",
     "authStrategies": [
       "jwt",
       "local"
@@ -19,22 +19,21 @@
         "typ": "access"
       },
       "audience": "https://yourdomain.com",
-      "issuer": "feathers",
-      "algorithm": "HS256",
+      "issuer": "DEV_JWT_ISSUER",
+      "algorithm": "DEV_JWT_ALGORITHM",
       "expiresIn": "1d"
     },
     "local": {
-      "usernameField": "email",
-      "passwordField": "password"
+      "usernameField": "LOCAL_USERNAMEFIELD",
+      "passwordField": "LOCAL_PASSWORDFIELD"
     },
     "oauth": {
-      "redirect": "/",
+      "redirect": "OAUTH_REDIRECT",
       "google": {
-        "key": "<google oauth key>",
-        "secret": "<google oauth secret>",
+        "key": "OAUTH_GOOGLE_KEY",
+        "secret": "OAUTH_GOOGLE_SECRET",
         "scope": [
           "email",
-          "profile",
           "openid"
         ]
       },
@@ -48,5 +47,9 @@
       }
     }
   },
-  "mongodb": "mongodb://localhost:27017/be_feathers_mongoose"
+  "environment": "ENVIRONMENT",
+  "mongodb_uri": "DEV_MONGODB_URI",
+  "sentry_dsn": "SENTRY_DSN",
+  "sendgrid": "SENDGRID",
+  "email": "DEV_EMAIL"
 }
