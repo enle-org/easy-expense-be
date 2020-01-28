@@ -59,7 +59,7 @@ exports.Recovery = class Recovery {
       return {
         sucess: true,
         data: {
-          message: 'Recovery email has been sent, pleas check your indox.'
+          message: 'Recovery email has been sent, please check your indox.'
         }
       };
     }
