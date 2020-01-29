@@ -24,9 +24,7 @@ module.exports = function (app) {
       token: String,
     }],
 
-    users: [{
-      email: String,
-    }],
+    members: [ Schema.Types.ObjectId ],
 
   }, {
     timestamps: true

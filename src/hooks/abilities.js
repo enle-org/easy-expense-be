@@ -26,8 +26,9 @@ const defineAbilitiesFor = user => {
   if (user) {
     can('manage', 'all', { type: 'admin' });
     can('manage', 'dashboard');
-    can(['read', 'update'], 'users', { _id: user._id });
+    can(['read', 'update', 'delete'], 'users', { _id: user._id });
     can('manage', 'invite');
+    can('create', 'invite/join');
     can('manage', 'organisations', { createdBy: user._id });
   }
 

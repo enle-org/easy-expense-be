@@ -1,5 +1,7 @@
 const { authenticate } = require('@feathersjs/authentication').hooks;
 
+const deleteOrganisation = require('../../hooks/deleteOrganisation');
+
 const {
   hashPassword, protect
 } = require('@feathersjs/authentication-local').hooks;
@@ -12,7 +14,7 @@ module.exports = {
     create: [ hashPassword('password') ],
     update: [ hashPassword('password'), authenticate('jwt') ],
     patch: [ hashPassword('password'), authenticate('jwt') ],
-    remove: [ authenticate('jwt') ]
+    remove: [ authenticate('jwt'), deleteOrganisation ]
   },
 
   after: {
