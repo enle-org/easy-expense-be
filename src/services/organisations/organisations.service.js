@@ -17,9 +17,6 @@ module.exports = function (app) {
   // Initialize our service with any options it requires
   app.use('/organisations', new Organisations(options, app));
 
-  // Initialize our service with any options it requires
-  app.use('/organisations/invite', new Organisations(options, app));
-
   // Get our initialized service so that we can register hooks
   const service = app.service('organisations');
 
