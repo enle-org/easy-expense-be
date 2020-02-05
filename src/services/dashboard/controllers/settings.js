@@ -1,5 +1,5 @@
 const settingsHandler = async (models, user) => {
-  const orgs = await models.organisations.find({ createdBy: user._id});
+  const orgs = await models.organisations.find({ createdBy: user._id });
   // const orgMembers = models.organisations.find({ createdBy: user._id});
 
   return {
@@ -10,7 +10,7 @@ const settingsHandler = async (models, user) => {
     })),
     personalSettings: {
       fullname: user.fullname,
-    }
+    },
   };
 };
 

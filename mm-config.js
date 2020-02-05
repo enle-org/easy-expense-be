@@ -7,7 +7,7 @@ const migrationConfig = {
   // timeout: 200,
   options: {
     useMongoClient: true,
-  }
+  },
 };
 
 module.exports = migrationConfig;

@@ -11,17 +11,14 @@ const subjectName = subject => {
   if (!subject || typeof subject === 'string') {
     return subject;
   }
-  
+
   return subject[TYPE_KEY];
 };
 
 const defineAbilitiesFor = user => {
   const { rules, can } = AbilityBuilder.extract();
 
-  can('create', [
-    'users',
-    'organisations',
-  ]);
+  can('create', ['users', 'organisations']);
 
   if (user) {
     can('manage', 'all', { type: 'admin' });

@@ -5,7 +5,7 @@ const { NotFound, GeneralError } = require('@feathersjs/errors');
 const utils = require('../../utils');
 
 exports.Recovery = class Recovery {
-  constructor (options) {
+  constructor(options) {
     this.options = options || {};
   }
 
@@ -29,21 +29,21 @@ exports.Recovery = class Recovery {
         return {
           sucess: true,
           data: {
-            message: 'Token is valid'
-          }
+            message: 'Token is valid',
+          },
         };
       }
       throw new GeneralError('Token has expired');
     }
-    
+
     throw new NotFound('User does not exist');
   }
 
-  async get (id, _params) {
+  async get(id, _params) {
     return await this.validateUserAndToken(id);
   }
 
-  async create (data, _params) {
+  async create(data, _params) {
     const user = await this.options.models.users.findOne({ email: data.email });
     if (user) {
       const token = await utils.tokenGenerator();
@@ -55,33 +55,35 @@ exports.Recovery = class Recovery {
         },
         { upsert: true, new: true },
       );
-      this.options.sendgridMail.send(this.recoveryMsg(user.email, data.url, token));
+      this.options.sendgridMail.send(
+        this.recoveryMsg(user.email, data.url, token),
+      );
       return {
         sucess: true,
         data: {
-          message: 'Recovery email has been sent, please check your indox.'
-        }
+          message: 'Recovery email has been sent, please check your indox.',
+        },
       };
     }
     throw new NotFound('User does not exist');
   }
 
-  async update (id, data, params) {
+  async update(id, data, params) {
     return data;
   }
 
-  async patch (id, data, _params) {
+  async patch(id, data, _params) {
     if (!id || !data.password)
       throw new GeneralError('Id and password required.');
 
     const tokenValidityObj = await this.validateUserAndToken(id);
     if (tokenValidityObj.sucess) {
       const response = await this.options.models.users.findOneAndUpdate(
-        { 
+        {
           'passwordRecovery.token': id,
         },
         {
-          'password': data.password,
+          password: data.password,
         },
         { upsert: true, new: true },
       );
@@ -90,12 +92,12 @@ exports.Recovery = class Recovery {
         data: {
           message: 'Password has been successfully reset',
           response,
-        }
+        },
       };
     }
   }
 
-  async remove (id, params) {
+  async remove(id, params) {
     return { id };
   }
 };

@@ -7,17 +7,20 @@ module.exports = {
   before: {
     all: [
       when(
-        hook => hook.params.provider && hook.path !== 'authentication' && hook.path !== 'recovery',
+        hook =>
+          hook.params.provider &&
+          hook.path !== 'authentication' &&
+          hook.path !== 'recovery',
         authenticate,
         authorize(),
-      )
+      ),
     ],
     find: [],
     get: [],
     create: [],
     update: [],
     patch: [],
-    remove: []
+    remove: [],
   },
 
   after: {
@@ -27,7 +30,7 @@ module.exports = {
     create: [],
     update: [],
     patch: [],
-    remove: []
+    remove: [],
   },
 
   error: {
@@ -37,6 +40,6 @@ module.exports = {
     create: [],
     update: [],
     patch: [],
-    remove: []
-  }
+    remove: [],
+  },
 };

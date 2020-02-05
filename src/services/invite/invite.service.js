@@ -2,7 +2,7 @@
 const { Invite } = require('./invite.class');
 const hooks = require('./invite.hooks');
 
-module.exports = function (app) {
+module.exports = function(app) {
   const mongooseClient = app.get('mongooseClient');
   const sendgridMail = app.get('sendgridMail');
   const organisations = mongooseClient.model('organisations');
@@ -13,7 +13,7 @@ module.exports = function (app) {
     sendgridMail,
     mongooseClient,
     models: { organisations, users },
-    paginate
+    paginate,
   };
 
   // Initialize our service with any options it requires

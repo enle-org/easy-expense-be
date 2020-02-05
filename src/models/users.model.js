@@ -3,43 +3,44 @@
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
 
-module.exports = function (app) {
+module.exports = function(app) {
   const mongooseClient = app.get('mongooseClient');
-  const users = new mongooseClient.Schema({
+  const users = new mongooseClient.Schema(
+    {
+      fullname: {
+        type: String,
+        default: '',
+      },
 
-    fullname: {
-      type: String,
-      default: '',
-    },
-  
-    email: {
-      type: String,
-      unique: true,
-      required: true,
-      lowercase: true,
-      match: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
-    },
+      email: {
+        type: String,
+        unique: true,
+        required: true,
+        lowercase: true,
+        match: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
+      },
 
-    password: { type: String, required: true },
+      password: { type: String, required: true },
 
-    type: {
-      type: String,
-      default: 'user',
-    },
+      type: {
+        type: String,
+        default: 'user',
+      },
 
-    googleId: {
-      type: String,
-      default: '',
-    },
+      googleId: {
+        type: String,
+        default: '',
+      },
 
-    passwordRecovery: {
-      token: { type: String },
-      expiry: { type: Date },
+      passwordRecovery: {
+        token: { type: String },
+        expiry: { type: Date },
+      },
     },
-  
-  }, {
-    timestamps: true
-  });
+    {
+      timestamps: true,
+    },
+  );
 
   return mongooseClient.model('users', users);
 };

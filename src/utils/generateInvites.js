@@ -24,22 +24,21 @@ module.exports = async (
     const token = await utils.tokenGenerator();
     if (!orgInvites.includes(email)) {
       inviteEmails.push({ email, token });
-    }
-    else {
+    } else {
       throw new GeneralError('Invite already exists.');
     }
   });
   await Promise.all(invitesMap);
-  const emailsSent = inviteEmails.map(emailObj => (
+  const emailsSent = inviteEmails.map(emailObj =>
     sendgridMail.send(
       inviteMsg(
         emailObj.email,
         useremail,
         orgName.toUpperCase(),
-        `${frontendURL}/invite/detials?email=${emailObj.email}&token=${emailObj.token}`
-      )
-    )
-  ));
+        `${frontendURL}/invite/detials?email=${emailObj.email}&token=${emailObj.token}`,
+      ),
+    ),
+  );
   await Promise.all(emailsSent);
   return inviteEmails;
 };

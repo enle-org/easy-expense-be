@@ -2,7 +2,7 @@
 const { Recovery } = require('./recovery.class');
 const hooks = require('./recovery.hooks');
 
-module.exports = function (app) {
+module.exports = function(app) {
   const mongooseClient = app.get('mongooseClient');
   const sendgridMail = app.get('sendgridMail');
   const users = mongooseClient.model('users');
@@ -11,7 +11,7 @@ module.exports = function (app) {
   const options = {
     sendgridMail,
     models: { users },
-    paginate
+    paginate,
   };
 
   // Initialize our service with any options it requires

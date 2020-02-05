@@ -7,23 +7,23 @@ const patchOrganisation = require('../../hooks/patchOrganisation');
 
 module.exports = {
   before: {
-    all: [ authenticate('jwt') ],
+    all: [authenticate('jwt')],
     find: [],
     get: [],
-    create: [ sendInvites ],
+    create: [sendInvites],
     update: [],
-    patch: [ patchOrganisation ],
-    remove: [ checkOrganizationDelete  ]
+    patch: [patchOrganisation],
+    remove: [checkOrganizationDelete],
   },
 
   after: {
     all: [],
-    find: [ getOrganisation ],
+    find: [getOrganisation],
     get: [],
     create: [],
     update: [],
     patch: [],
-    remove: []
+    remove: [],
   },
 
   error: {
@@ -33,6 +33,6 @@ module.exports = {
     create: [],
     update: [],
     patch: [],
-    remove: []
-  }
+    remove: [],
+  },
 };
