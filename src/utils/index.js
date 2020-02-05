@@ -1,4 +1,3 @@
-
 const crypto = require('crypto');
 
 const tokenGenerator = async () => {
@@ -13,6 +12,6 @@ const tokenGenerator = async () => {
   return buffer.toString('hex');
 };
 
-module.exports =  {
+module.exports = {
   tokenGenerator,
 };

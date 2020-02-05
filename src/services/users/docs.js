@@ -158,5 +158,4 @@
         }
 */
 
-module.exports =  'docs';
-
+module.exports = 'docs';

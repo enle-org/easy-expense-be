@@ -5,13 +5,13 @@ const hooks = require('./users.hooks');
 // eslint-disable-next-line no-unused-vars
 const { userServiceDoc } = require('./docs');
 
-module.exports = function (app) {
+module.exports = function(app) {
   const Model = createModel(app);
   const paginate = app.get('paginate');
 
   const options = {
     Model,
-    paginate
+    paginate,
   };
 
   // Initialize our service with any options it requires
