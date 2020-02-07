@@ -2,6 +2,8 @@
 const { Organisations } = require('./organisations.class');
 const createModel = require('../../models/organisations.model');
 const hooks = require('./organisations.hooks');
+// eslint-disable-next-line no-unused-vars
+const { serviceDocs } = require('./docs');
 
 module.exports = function(app) {
   const Model = createModel(app);

@@ -1,6 +1,8 @@
 // Initializes the `invite` service on path `/invite`
 const { Invite } = require('./invite.class');
 const hooks = require('./invite.hooks');
+// eslint-disable-next-line no-unused-vars
+const { serviceDocs } = require('./docs');
 
 module.exports = function(app) {
   const mongooseClient = app.get('mongooseClient');
