@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "description": "Documentation for the REST api access provided at EasyExpense",
   "title": "EasyExpense API documentation",
-  "url" : "https://api.easyexpense.com",
-  "sampleUrl": "https://api.easyexpense.com",
+  "url": "https://easy-expense-be-staging.herokuapp.com",
+  "sampleUrl": "https://easy-expense-be-staging.herokuapp.com",
   "template": {
     "withCompare": true,
     "withGenerator": true,

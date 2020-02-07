@@ -36,7 +36,7 @@ exports.Recovery = class Recovery {
       throw new GeneralError('Token has expired');
     }
 
-    throw new NotFound('User does not exist');
+    throw new NotFound('Recovery token does not exist');
   }
 
   async get(id, _params) {

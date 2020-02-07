@@ -11,6 +11,16 @@
     "name": "Ekpo David",
     "email": "dave170e71@gmail.com"
   },
+  "scripts": {
+    "test": "yarn run lint && yarn run jest",
+    "lint": "eslint src/. test/. --config .eslintrc.json",
+    "dev": "nodemon src/",
+    "start": "node src/",
+    "doc": "apidoc -i ./src ",
+    "jest": "jest  --forceExit",
+    "prettier": "prettier --write '**/*.{js,jsx}'",
+    "migrations": "mm"
+  },
   "contributors": [],
   "bugs": {},
   "directories": {
@@ -29,22 +39,13 @@
   },
   "lint-staged": {
     "*.js": [
-      "npm run lint",
+      "yarn lint",
       "git add --force"
     ],
     "*.json": [
       "prettier --write",
       "git add --force"
     ]
-  },
-  "scripts": {
-    "test": "yarn run eslint && yarn run jest",
-    "eslint": "eslint src/. test/. --config .eslintrc.json",
-    "dev": "nodemon src/",
-    "start": "node src/",
-    "doc": "apidoc -i ./src ",
-    "jest": "jest  --forceExit",
-    "prettier": "prettier --write '**/*.{js,jsx}'"
   },
   "dependencies": {
     "@casl/ability": "^3.4.0",
