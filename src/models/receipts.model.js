@@ -7,8 +7,7 @@ module.exports = function(app) {
   const { Schema } = mongooseClient;
   const receipts = new Schema(
     {
-      title: { type: String, required: true },
-      desc: String,
+      title: { type: String },
       userId: { type: String, required: true },
       images: [String],
     },

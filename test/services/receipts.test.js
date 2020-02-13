@@ -22,7 +22,6 @@ describe('receipts service', () => {
     expect(receipts).toHaveProperty('_id');
     expect(receipts).toHaveProperty('userId');
     expect(receipts).toHaveProperty('title');
-    expect(receipts).toHaveProperty('desc');
     expect(receipts).toHaveProperty('createdAt');
     expect(receipts).toHaveProperty('updatedAt');
     expect(receipts).toHaveProperty('images');
@@ -47,7 +46,6 @@ describe('receipts service', () => {
     expect(receipts._id).toEqual(receiptId);
     expect(receipts).toHaveProperty('userId');
     expect(receipts).toHaveProperty('title');
-    expect(receipts).toHaveProperty('desc');
     expect(receipts).toHaveProperty('createdAt');
     expect(receipts).toHaveProperty('updatedAt');
     expect(receipts).toHaveProperty('images');
@@ -65,8 +63,6 @@ describe('receipts service', () => {
     expect(receipts).toHaveProperty('userId');
     expect(receipts).toHaveProperty('title');
     expect(receipts.title).toEqual(updatedReceiptTestData.title);
-    expect(receipts).toHaveProperty('desc');
-    expect(receipts.desc).toEqual(updatedReceiptTestData.desc);
     expect(receipts).toHaveProperty('createdAt');
     expect(receipts).toHaveProperty('updatedAt');
     expect(receipts).toHaveProperty('images');
@@ -83,7 +79,6 @@ describe('receipts service', () => {
     expect(receipts._id).toEqual(receiptId);
     expect(receipts).toHaveProperty('userId');
     expect(receipts).toHaveProperty('title');
-    expect(receipts).toHaveProperty('desc');
     expect(receipts).toHaveProperty('createdAt');
     expect(receipts).toHaveProperty('updatedAt');
     expect(receipts).toHaveProperty('images');
