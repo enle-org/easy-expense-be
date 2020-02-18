@@ -2,7 +2,7 @@
 const { Dashboard } = require('./dashboard.class');
 const hooks = require('./dashboard.hooks');
 
-module.exports = function (app) {
+module.exports = function(app) {
   const mongooseClient = app.get('mongooseClient');
   const users = mongooseClient.model('users');
   const organisations = mongooseClient.model('organisations');
@@ -10,7 +10,7 @@ module.exports = function (app) {
 
   const options = {
     models: { users, organisations },
-    paginate
+    paginate,
   };
 
   // Initialize our service with any options it requires

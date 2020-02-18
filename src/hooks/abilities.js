@@ -11,24 +11,23 @@ const subjectName = subject => {
   if (!subject || typeof subject === 'string') {
     return subject;
   }
-  
+
   return subject[TYPE_KEY];
 };
 
 const defineAbilitiesFor = user => {
   const { rules, can } = AbilityBuilder.extract();
 
-  can('create', [
-    'users',
-    'organisations',
-  ]);
+  can('create', ['users', 'organisations', 'receipts']);
 
   if (user) {
     can('manage', 'all', { type: 'admin' });
     can('manage', 'dashboard');
-    can(['read', 'update'], 'users', { _id: user._id });
+    can(['read', 'update', 'delete'], 'users', { _id: user._id });
     can('manage', 'invite');
+    can('create', 'invite/join');
     can('manage', 'organisations', { createdBy: user._id });
+    can(['read', 'update', 'delete'], 'receipts');
   }
 
   return new Ability(rules, { subjectName });
