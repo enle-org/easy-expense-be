@@ -4,6 +4,8 @@ const dashboard = require('./dashboard/dashboard.service.js');
 const recovery = require('./recovery/recovery.service.js');
 const invite = require('./invite/invite.service.js');
 const receipts = require('./receipts/receipts.service.js');
+const expenses = require('./expenses/expenses.service.js');
+const expenseCategories = require('./expense-categories/expense-categories.service.js');
 // eslint-disable-next-line no-unused-vars
 module.exports = function(app) {
   app.configure(users);
@@ -12,4 +14,6 @@ module.exports = function(app) {
   app.configure(recovery);
   app.configure(invite);
   app.configure(receipts);
+  app.configure(expenses);
+  app.configure(expenseCategories);
 };
